@@ -5,10 +5,12 @@ from .views import (
     UserListCreateAPIView,
     CheckoutBookAPIView,
     ReturnBookAPIView,)
+from django.contrib import admin
 
 urlpatterns = [
-    path('api/books/', BookListView.as_view(), name='book-list'),
-    path('api/users/', UserListView.as_view(), name='user-list'),
+    path('admin/', admin.site.urls),
+    path('books/', BookListView.as_view(), name='book-list'),
+    path('users/', UserListView.as_view(), name='user-list'),
     path('books/', BookListCreateAPIView.as_view(), name='book-list-create'),
     path('books/<int:pk>/', BookRetrieveUpdateDestroyAPIView.as_view(), name='book-detail'),
     path('users/', UserListCreateAPIView.as_view(), name='user-list-create'),
